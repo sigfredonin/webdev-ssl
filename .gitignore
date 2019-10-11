@@ -1,0 +1,9 @@
+/old-*
+*.pem
+*.crt
+*.csr
+*.key
+index.*
+rootCA*
+serial.*
+server.*
