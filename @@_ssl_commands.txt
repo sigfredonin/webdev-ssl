@@ -1,0 +1,12 @@
+## Set up CA
+openssl req -x509 -config rootCA.cnf -newkey rsa:4096 -sha256 -nodes -out rootCA.crt -outform PEM
+openssl x509 -in rootCA.crt -text -noout > rootCA.crt.txt
+openssl x509 -purpose -in rootCA.crt -inform PEM > rootCA.crt.purpose.txt
+
+## Create key pair and certificate request
+openssl req -nodes -days 1830 -new -newkey rsa:4096 -config server.cnf -out server.csr
+openssl req -in server.csr -text -noout > server.csr.txt
+
+## Create signed certificate
+openssl ca -config rootCA.cnf -policy signing_policy -extensions signing_req -out server.crt -infiles server.csr
+openssl x509 -in server.crt -text -noout > server.crt.txt
