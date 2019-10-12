@@ -1,9 +1,14 @@
 /old-*
 *.pem
 *.crt
+*.crt.txt
 *.csr
+*.csr.txt
+*.purpose.txt
 *.key
+*.ppk
+*.pub
+*.asc
+
 index.*
-rootCA*
 serial.*
-server.*
